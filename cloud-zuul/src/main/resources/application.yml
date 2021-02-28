@@ -16,22 +16,7 @@ eureka:
 zuul:
   #一下配置，表示忽略下面的值向微服务传播，以下配置为空表示：所有请求头都透传到后面微服务。
   #  sensitive-headers:
-  routes:
-    xxx:
-      path: /a-forward/**
-      url: forward:/myController
 
-    #     配合 龙哥,后面两个*号，表示 所有路径都转发，一个* 表示 只转发一级。
-    service-sms: /zuul-api-driver/**
-    # 配合 风雨冷人
-    xxxx: /zuul-api-driver/**
-    #此处名字随便取
-#    custom-zuul-name:
-#      path: /zuul-api-driver/**
-#      url: http://localhost:8080/
-#service-sms:
-#  ribbon:
-#    NFLoadBalancerRuleClassName: com.mashibing.cloudzuul.gray.GrayRule
 
 
 

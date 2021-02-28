@@ -11,6 +11,7 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 30
 
+#灰度A配置
 ---
 spring:
   profiles: v1
@@ -23,6 +24,7 @@ eureka:
     metadata-map:
       version: v1
 
+#灰度B配置
 ---
 spring:
   profiles: v2
