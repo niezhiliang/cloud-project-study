@@ -44,7 +44,11 @@ public class GrayFilter extends ZuulFilter {
         RequestContext currentContext = RequestContext.getCurrentContext();
         HttpServletRequest request = currentContext.getRequest();
 
-        int userId = Integer.parseInt(request.getHeader("userId"));
+        String headerUserId = request.getHeader("userId");
+        if (null == headerUserId) {
+            return null;
+        }
+        int userId = Integer.parseInt(headerUserId);
         // 根据用户id 查 规则  查库 v1,meata
 
         //模拟数据库灰度规则
@@ -52,12 +56,9 @@ public class GrayFilter extends ZuulFilter {
         if (userId == 1){
             RibbonFilterContextHolder.getCurrentContext().add("version","v1");
         // 普通用户
-        }else if (userId == 2){
+        } else if (userId == 2){
             RibbonFilterContextHolder.getCurrentContext().add("version","v2");
         }
-
-
-
         return null;
     }
 }

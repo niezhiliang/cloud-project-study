@@ -14,8 +14,26 @@ eureka:
     hostname: localhost
     instance-id: CLOUD-ZUUL
 zuul:
-  #一下配置，表示忽略下面的值向微服务传播，以下配置为空表示：所有请求头都透传到后面微服务。
-  #  sensitive-headers:
+  #网关前缀，加了此配置需要在原来所有的url前加上/api eg: /api/sms/test/sms-test
+  prefix: /api
+  #是否移除前缀,默认ture
+  strip-prefix: true
+  #以下配置，表示忽略下面的值向微服务传播，以下配置为空表示：所有请求头都透传到后面微服务。 默认"Cookie", "Set-Cookie", "Authorization" 不往下传递
+  sensitive-headers:
+  #忽略服务名直接路由 /sms/test/sms-test 不能用了
+  ignoredServices:
+    - sms
+  #服务路由，默认 /sms/test/sms-test
+  routes:
+#    #1.通过服务名，后面直接配置路由规则
+#    sms: /sms2/**
+    #2.根据服务id,自定义uri，新的url:/sms2/test/sms-test
+    sms: #该name可随机命名
+      service-id: sms
+      path: /sms2/**
+
+
+
 
 
 
