@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: API
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7900/eureka/
+    registry-fetch-interval-seconds: 30
+    enabled: true
+  instance:
+    lease-renewal-interval-in-seconds: 30
