@@ -25,12 +25,22 @@ zuul:
     - sms
   #服务路由，默认 /sms/test/sms-test
   routes:
-#    #1.通过服务名，后面直接配置路由规则
-#    sms: /sms2/**
+    #路由到zuul本身的controller
+    zuul-self:
+      path: /a-forward/**
+      url: forward:/zuulIndex
+    #1.通过服务名，后面直接配置路由规则
+    sms: /sms2/**
     #2.根据服务id,自定义uri，新的url:/sms2/test/sms-test
-    sms: #该name可随机命名
-      service-id: sms
-      path: /sms2/**
+#    sms: #该name可随机命名
+#      service-id: sms
+#      path: /sms2/**
+#    sms: #自定义名称
+#      #匹配的路径规则
+#      path: /sms2/**
+#      #调到指定的url
+#      url: http://localhost:8004
+
 
 
 
