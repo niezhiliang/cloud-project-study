@@ -11,9 +11,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.niezhiliang.cloud</groupId>
-    <artifactId>cloud-api</artifactId>
+    <artifactId>cloud-lcn-tm</artifactId>
     <version>1.0-SNAPSHOT</version>
-
 
     <properties>
         <java.version>1.8</java.version>
@@ -21,27 +20,24 @@
     </properties>
 
     <dependencies>
-        <!-- eureka客户端 -->
+        <!--eureka client-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <!-- lcn  tm -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.codingapi.txlcn</groupId>
+            <artifactId>txlcn-tm</artifactId>
+            <version>5.0.2.RELEASE</version>
         </dependency>
+
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>com.codingapi.txlcn</groupId>
+            <artifactId>txlcn-tc</artifactId>
+            <version>5.0.2.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
+        <!-- lcn  tm -->
     </dependencies>
 
     <dependencyManagement>
@@ -58,15 +54,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

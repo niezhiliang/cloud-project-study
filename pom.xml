@@ -13,6 +13,9 @@
         <module>cloud-service-sms</module>
         <module>cloud-zuul</module>
         <module>cloud-api</module>
+        <module>cloud-lcn-tm</module>
+        <module>cloud-order</module>
+        <module>cloud-pau</module>
     </modules>
 
 

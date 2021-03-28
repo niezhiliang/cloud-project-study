@@ -1,0 +1,43 @@
+server:
+  port: 7970
+
+spring:
+  application:
+    name: tx-manager
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tx-manager?characterEncoding=UTF-8
+    username: root
+    password: root
+  #redisIp
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+
+#eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7900/eureka/
+    registry-fetch-interval-seconds: 30
+    enabled: true
+  instance:
+    lease-renewal-interval-in-seconds: 30
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+#lcn配置
+tx-lcn:
+  manager:
+    admin-key: admin
+    host:
+  logger:
+    # 开启日志
+    enabled: true
+    driver-class-name: com.mysql.jdbc.Driver
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/tx-manager?characterEncoding=UTF-8
+    username: root
+    password: root

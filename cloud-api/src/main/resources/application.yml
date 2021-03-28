@@ -1,6 +1,6 @@
 spring:
   application:
-    name: API
+    name: SERVICE-API
 
 eureka:
   client:
