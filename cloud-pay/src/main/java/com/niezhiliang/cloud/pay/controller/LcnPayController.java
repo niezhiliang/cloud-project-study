@@ -18,8 +18,8 @@ import org.springframework.web.client.RestTemplate;
  * @Date : 2021/3/28
  */
 @RestController
-@RequestMapping(value = "pay")
-public class PayController {
+@RequestMapping(value = "lcn")
+public class LcnPayController {
     @Autowired
     private PayMapper payMapper;
     @Autowired
@@ -29,9 +29,10 @@ public class PayController {
 
     /**
      * 模拟第三方回调
+     * LCN模式
      * @return
      */
-    @GetMapping(value = "lcn/callBack")
+    @GetMapping(value = "lcn")
     @Transactional(rollbackFor = Exception.class)
     @LcnTransaction
     public String callBackLcn() {
@@ -45,7 +46,7 @@ public class PayController {
         MultiValueMap<String, Object> paramMap = new LinkedMultiValueMap<>();
         paramMap.add("id", payDO.getId());
         //调用订单服务，修改订单状态
-        restTemplate.postForEntity("http://service-order/order/change",paramMap,String.class);
+        restTemplate.postForEntity("http://service-order/lcn/lcn",paramMap,String.class);
         //模拟异常，让分布式事务回滚
         //int i = 1/0;
 
@@ -56,7 +57,7 @@ public class PayController {
      * TCC分布式事务
      * @return
      */
-    @GetMapping(value = "lcn/callBack2")
+    @GetMapping(value = "tcc")
     @Transactional(rollbackFor = Exception.class)
     @TccTransaction(cancelMethod = "cancelTcc",confirmMethod ="confirmTcc")
     public String callBackTcc() {
@@ -73,7 +74,7 @@ public class PayController {
         //通过threadLocal传递给confirm和cancel
         threadLocal.set(payDO.getId());
         //调用订单服务，修改订单状态
-        restTemplate.postForEntity("http://service-order/order/change2",paramMap,String.class);
+        restTemplate.postForEntity("http://service-order/lcn/tcc",paramMap,String.class);
         //模拟异常，让分布式事务回滚
         int i = 1/0;
 

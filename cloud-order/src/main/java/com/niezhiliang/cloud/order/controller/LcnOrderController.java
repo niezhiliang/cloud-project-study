@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date : 2021/3/28
  */
 @RestController
-@RequestMapping(value = "order")
-public class OrderController {
+@RequestMapping(value = "lcn")
+public class LcnOrderController {
     @Autowired
     private OrderMapper orderMapper;
     private static final ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
@@ -25,7 +25,7 @@ public class OrderController {
      * 分布式事务：LCN方式
      * @return
      */
-    @RequestMapping(value = "change")
+    @RequestMapping(value = "lcn")
     @Transactional(rollbackFor = Exception.class)
     @LcnTransaction
     public String changeStatus(Integer id) {
@@ -42,7 +42,7 @@ public class OrderController {
      * 分布式事务：TCC方式
      * @return
      */
-    @RequestMapping(value = "change2")
+    @RequestMapping(value = "tcc")
     @Transactional(rollbackFor = Exception.class)
     @TccTransaction(cancelMethod = "cancelTcc",confirmMethod = "confirmTcc")
     public String changeStatus2(Integer id) {
