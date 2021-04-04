@@ -16,6 +16,7 @@
         <module>cloud-lcn-tm</module>
         <module>cloud-order</module>
         <module>cloud-pau</module>
+        <module>seata-server</module>
     </modules>
 
 

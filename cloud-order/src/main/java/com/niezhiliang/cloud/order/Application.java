@@ -9,7 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date : 2021/3/28
  */
 @SpringBootApplication
-@EnableDistributedTransaction
+//LCN启动注解
+//@EnableDistributedTransaction
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class);

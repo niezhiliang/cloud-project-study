@@ -2,7 +2,6 @@ package com.niezhiliang.cloud.pay.controller;
 
 import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.codingapi.txlcn.tc.annotation.TccTransaction;
-import com.google.inject.internal.asm.$Handle;
 import com.niezhiliang.cloud.pay.mapper.PayMapper;
 import com.niezhiliang.cloud.pay.module.PayDO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @RestController
 @RequestMapping(value = "pay")
-public class PayOrderController {
+public class PayController {
     @Autowired
     private PayMapper payMapper;
     @Autowired
@@ -32,10 +31,10 @@ public class PayOrderController {
      * 模拟第三方回调
      * @return
      */
-    @GetMapping(value = "callBack")
+    @GetMapping(value = "lcn/callBack")
     @Transactional(rollbackFor = Exception.class)
     @LcnTransaction
-    public String callBack() {
+    public String callBackLcn() {
         PayDO payDO = new PayDO();
         payDO.setId(1);
         //设置支付状态为成功
@@ -57,10 +56,10 @@ public class PayOrderController {
      * TCC分布式事务
      * @return
      */
-    @GetMapping(value = "callBack2")
+    @GetMapping(value = "lcn/callBack2")
     @Transactional(rollbackFor = Exception.class)
     @TccTransaction(cancelMethod = "cancelTcc",confirmMethod ="confirmTcc")
-    public String callBack2() {
+    public String callBackTcc() {
         PayDO payDO = new PayDO();
         payDO.setId(1);
         //设置支付状态为成功

@@ -67,6 +67,13 @@
             <version>5.0.2.RELEASE</version>
         </dependency>
         <!-- lcn tc -->
+        <!-- seata -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-seata</artifactId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

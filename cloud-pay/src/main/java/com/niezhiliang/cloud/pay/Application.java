@@ -13,7 +13,8 @@ import org.springframework.web.client.RestTemplate;
  * @Date : 2021/3/28
  */
 @SpringBootApplication
-@EnableDistributedTransaction
+//LCN启动配置
+//@EnableDistributedTransaction
 @MapperScan("com.niezhiliang.cloud.pay.mapper")
 public class Application {
     public static void main(String[] args) {

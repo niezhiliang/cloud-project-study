@@ -1,6 +1,11 @@
 server:
   port: 8006
 spring:
+ #可以不配置，会走默认的 file.conf和registry.conf也可以不配
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_tx_group
   application:
     name: service-order
   datasource:
