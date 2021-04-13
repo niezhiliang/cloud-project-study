@@ -5,7 +5,7 @@ spring:
     name: service-apy
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/tx-pay?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://www.isuyu.cn:3306/tx-pay?useUnicode=true&characterEncoding=utf-8
     username: root
     password: root
 
@@ -21,3 +21,7 @@ eureka:
 tx-lcn:
   client:
     manager-address: 127.0.0.1:8070
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: distributed-translation

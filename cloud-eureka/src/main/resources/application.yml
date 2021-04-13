@@ -22,11 +22,11 @@ eureka:
     # 续约阈值，和自我保护相关
     renewal-percent-threshold: 0.85
     # server剔除过期服务的时间间隔
-    eviction-interval-timer-in-ms: 1000
+    eviction-interval-timer-in-ms: 10000
     # 是否开启readOnly读缓存
-    use-read-only-response-cache: true
+    use-read-only-response-cache: false
     # 关闭 readOnly
-    response-cache-update-interval-ms: 1000
+    response-cache-update-interval-ms: 10000
 
 
 
@@ -44,7 +44,7 @@ eureka:
     fetch-registry: false
     service-url:
       # 5 24
-      defaultZone: http://eureka-7900:7900/eureka/
+      defaultZone: http://127.0.0.1:7900/eureka/,http://127.0.0.1:7901/eureka/
 
 
 ---
@@ -60,7 +60,7 @@ eureka:
     fetch-registry: true
     service-url:
       # 5 24
-      defaultZone: http://eureka-7900:7900/eureka/
+      defaultZone: http://127.0.0.1:7900/eureka/,http://127.0.0.1:7901/eureka/
 ---
 spring:
   profiles: 7902
@@ -74,4 +74,4 @@ eureka:
     fetch-registry: true
     service-url:
       # 5 24
-      defaultZone: http://eureka-7900:7902/eureka/
+      defaultZone: http://127.0.0.1:7902/eureka/

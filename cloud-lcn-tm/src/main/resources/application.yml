@@ -6,12 +6,12 @@ spring:
     name: tx-manager
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/tx-manager?characterEncoding=UTF-8
+    url: jdbc:mysql://120.78.149.247:3306/tx-manager?characterEncoding=UTF-8
     username: root
     password: root
   #redisIp
   redis:
-    host: 127.0.0.1
+    host: 120.78.149.247
     port: 6379
     password: 123456
 
@@ -38,6 +38,6 @@ tx-lcn:
     # 开启日志
     enabled: true
     driver-class-name: com.mysql.jdbc.Driver
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/tx-manager?characterEncoding=UTF-8
+    jdbc-url: jdbc:mysql://120.78.149.247:3306/tx-manager?characterEncoding=UTF-8
     username: root
     password: root
