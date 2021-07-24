@@ -39,6 +39,7 @@ public class TranslationListener implements RocketMQLocalTransactionListener {
     @Override
     public RocketMQLocalTransactionState checkLocalTransaction(Message msg) {
         log.info("mq回查：{}",JSON.toJSONString(msg));
+        //TODO 最好是维护一张表，来标识当前事务是否执行完毕
         return RocketMQLocalTransactionState.UNKNOWN;
     }
 }
