@@ -16,7 +16,7 @@ eureka:
 zuul:
   #网关前缀，加了此配置需要在原来所有的url前加上/api eg: /api/sms/test/sms-test
   prefix: /api
-  #是否移除前缀,默认ture
+  #是否带前缀,默认ture
   strip-prefix: true
   #以下配置，表示忽略下面的值向微服务传播，以下配置为空表示：所有请求头都透传到后面微服务。 默认"Cookie", "Set-Cookie", "Authorization" 不往下传递
   sensitive-headers:
@@ -27,6 +27,7 @@ zuul:
   routes:
     #路由到zuul本身的controller
     zuul-self:
+      #http://127.0.0.1:9100/api/a-forward/
       path: /a-forward/**
       url: forward:/zuulIndex
     #1.通过服务名，后面直接配置路由规则
@@ -40,16 +41,6 @@ zuul:
 #      path: /sms2/**
 #      #调到指定的url
 #      url: http://localhost:8004
-
-
-
-
-
-
-
-
-
-
 management:
   endpoints:
     web:
