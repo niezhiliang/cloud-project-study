@@ -10,3 +10,13 @@ eureka:
     enabled: true
   instance:
     lease-renewal-interval-in-seconds: 30
+
+app:
+  id: my-app
+apollo:
+  meta: http://192.168.3.8:8080
+  bootstrap:
+    enabled: true
+    namespaces: application
+  accesskey:
+    secret: c9396e10a6624ce39fffe2346d853c06
